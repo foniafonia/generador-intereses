@@ -117,7 +117,18 @@ footer{text-align:center;font-size:.85rem;color:#5a6b5f;padding:20px 16px}
         <div class="card"><img class="mini" src="img/sec-3-pollito.webp" alt="" loading="lazy"><h3>Secuencia del huevo al vuelo</h3><p>Cuatro viñetas para recortar y ordenar, con una tira numerada donde pegarlas.</p><p class="trabaja"><b>Trabaja:</b> orden temporal, narración (primero, luego, al final), vocabulario.</p><button class="btn" data-imp="sec">Imprimir</button></div>
         <div class="card"><img class="mini" src="img/ave-gorrion.webp" alt="" loading="lazy"><h3>Memory de aves de aquí</h3><p>Gorrión, paloma, gaviota, golondrina y cigüeña. Cartas con dibujo y cartas con dibujo y nombre.</p><p class="trabaja"><b>Trabaja:</b> memoria visual, turnos, léxico de aves, nombrar al dar la vuelta a la carta.</p><button class="btn" data-imp="mem">Imprimir</button></div>
         <div class="card"><img class="mini" src="img/obj-nido.webp" alt="" loading="lazy"><h3>Tarjetas del nido</h3><p>Ocho objetos con su palabra y una frase para pedirlo: «Dame la rama».</p><p class="trabaja"><b>Trabaja:</b> vocabulario, peticiones, frases de dos y tres palabras.</p><button class="btn" data-imp="tar">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/obj-pollito-pie.webp" alt="" loading="lazy"><h3>Laberinto: del pollito al nido</h3><p>Un laberinto distinto cada vez, más fácil o más difícil según la edad.</p><p class="trabaja"><b>Trabaja:</b> atención visual, planificación, instrucciones («sube», «gira», «para»).</p><button class="btn" data-imp="lab">Imprimir</button> <button class="btn sec" data-imp="lab2">Otro laberinto</button></div>
+        <div class="card"><img class="mini" src="img/sil-golondrina.webp" alt="" loading="lazy" style="background:#fff"><h3>¿Quién es? Aves y siluetas</h3><p>Recorta las cinco aves y pégalas sobre su silueta.</p><p class="trabaja"><b>Trabaja:</b> discriminación visual, nombrar, describir rasgos (pico, cola, color).</p><button class="btn" data-imp="sil">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/obj-huevo.webp" alt="" loading="lazy"><h3>¿Cuántos huevos hay?</h3><p>Cinco nidos con uno a cinco huevos. Rodea el número.</p><p class="trabaja"><b>Trabaja:</b> contar, cuantificadores (uno, dos, muchos), frases con número.</p><button class="btn" data-imp="cont">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/colorear-nido.webp" alt="" loading="lazy"><h3>Para colorear (4 dibujos)</h3><p>Nido con huevos, pájaro, pollito y golondrina. Cada uno, una hoja.</p><p class="trabaja"><b>Trabaja:</b> grafomotricidad, colores, describir lo que pinta.</p><button class="btn" data-imp="col">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/obj-gusano.webp" alt="" loading="lazy"><h3>Juego de mesa: el camino del pollito</h3><p>Tablero de 20 casillas. En las especiales hay que pedir, decir o soplar para avanzar. Se juega con un dado.</p><p class="trabaja"><b>Trabaja:</b> peticiones, turnos, vocabulario, soplo, contar casillas.</p><button class="btn" data-imp="juego">Imprimir</button></div>
       </div>
+    </section>
+
+    <section class="panel">
+      <h2>Manualidades</h2>
+      <p class="nota">Con materiales de casa. Cada una trae los pasos y lo que puede ir diciendo el niño.</p>
+      <div class="rej" id="manu"></div>
     </section>
 
     <section class="panel">
@@ -195,6 +206,18 @@ function actividades(){
   document.getElementById('acts').innerHTML=h;
 }
 
+/* ===== Manualidades ===== */
+var MANU=[
+ {t:'Nido de papel con huevos de plastilina',img:'obj-nido',mat:'Un plato de cartón o un cuenco de papel, tiras de papel marrón y amarillo, pegamento, plastilina clara y rotulador marrón.',pasos:['Rompe o recorta tiras de papel.','Pégalas en espiral dentro del plato para hacer el nido.','Haz tres bolitas ovaladas de plastilina: son los huevos.','Píntales motas con el rotulador.','Colócalos en el nido y cuéntalos.'],dice:'«Quiero más papel.» «Pega la rama aquí.» «Hay tres huevos.»',w:'peticiones, secuencia de pasos, cuantificadores, motricidad fina.'},
+ {t:'Pájaro con un rollo de cartón',img:'obj-rollo',mat:'Rollo de papel higiénico, tijeras, pegamento, papel de colores o la plantilla de abajo.',pasos:['Imprime la plantilla y píntala.','Recorta alas, pico, ojos y cresta.','Pega las alas a los lados del rollo.','Pega el pico y los ojos en el centro.','Haz que el pájaro vuele y diga lo que quiere.'],dice:'«Alas.» «Pico.» «El pájaro vuela.» «Tiene el pico naranja.»',w:'partes del cuerpo, adjetivos de color, descripción, pegar y recortar.',plantilla:true},
+ {t:'Comedero con un brick',img:'obj-comedero',mat:'Un brick limpio, tijeras (las usa el adulto), cuerda, alpiste y un palo o cuchara de madera.',pasos:['El adulto corta una ventana en un lado del brick.','Se pasa el palo por dos agujeros como posadero.','Se hace un agujero arriba y se ata la cuerda.','El niño echa el alpiste con una cuchara.','Se cuelga en un árbol o balcón y se espera a que vengan.'],dice:'«Abre.» «Echo comida.» «Ya viene un pájaro.»',w:'órdenes de varios pasos, vocabulario, espera y turnos, observación.'},
+ {t:'Pájaro de plato de papel',img:'sec-4-vuelo',mat:'Un plato de papel, papeles de colores, pegamento, tijeras, un palo de polo.',pasos:['Corta el plato por la mitad.','Una mitad será el cuerpo y la otra las alas.','Pega plumas de papel de colores en las alas.','Pega ojo y pico.','Pégalo a un palo de polo para hacerlo volar.'],dice:'«Primero corto.» «Luego pego.» «Al final, vuela.»',w:'secuencia (primero, luego, al final), colores, verbos de acción.'}
+];
+function manualidades(){
+  document.getElementById('manu').innerHTML=MANU.map(function(m,i){return '<div class="card"><img class="mini" src="img/'+m.img+'.webp" alt="" loading="lazy"><h3>'+m.t+'</h3><p><b>Necesitas:</b> '+m.mat+'</p><ol style="padding-left:20px;margin:6px 0">'+m.pasos.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ol><p><b>Que vaya diciendo:</b> '+m.dice+'</p><p class="trabaja"><b>Trabaja:</b> '+m.w+'</p>'+(m.plantilla?'<button class="btn" data-imp="plan">Imprimir plantilla</button>':'')+'</div>';}).join('');
+  document.querySelectorAll('#manu [data-imp]').forEach(function(b){b.addEventListener('click',function(){imprime(b.dataset.imp);});});
+}
+
 /* ===== Hojas ===== */
 var LOGO='img/colmenia-logo.webp';
 function cab(tit,sub){return '<div class="cab"><img src="'+LOGO+'" alt=""><div><b>'+tit+'</b><span>'+sub+'</span></div></div>';}
@@ -223,8 +246,65 @@ function hojaTar(){
   var c=OBJ.map(function(o){return '<div class="celda" style="height:57mm"><img src="img/'+o[3]+'.webp" alt="" style="max-height:34mm"><div class="pal">'+o[0]+'</div><div class="fra">'+o[2]+'</div></div>';}).join('');
   return '<div class="hoja" data-p="tar">'+cab('Tarjetas del nido','Mira, di la palabra y pide con la frase')+'<p class="instr">Recorta las tarjetas. Se pueden usar para nombrar, pedir y hacer frases.</p><div class="rejilla" style="grid-template-columns:1fr 1fr">'+c+'</div>'+pie()+'</div>';
 }
+function rng(seed){var x=seed>>>0;return function(){x^=x<<13;x>>>=0;x^=x>>>17;x^=x<<5;x>>>=0;return x/4294967296;};}
+function laberinto(cols,rows,seed,cw){
+  var r=rng(seed),vis=[],muros=[];
+  for(var y=0;y<rows;y++){vis[y]=[];muros[y]=[];for(var x=0;x<cols;x++){vis[y][x]=false;muros[y][x]={n:1,s:1,e:1,o:1};}}
+  var pila=[[0,0]];vis[0][0]=true;
+  while(pila.length){var c=pila[pila.length-1],x=c[0],y=c[1],v=[];
+    if(y>0&&!vis[y-1][x])v.push('n');if(y<rows-1&&!vis[y+1][x])v.push('s');if(x<cols-1&&!vis[y][x+1])v.push('e');if(x>0&&!vis[y][x-1])v.push('o');
+    if(!v.length){pila.pop();continue;}
+    var d=v[Math.floor(r()*v.length)],nx=x,ny=y;
+    if(d==='n'){muros[y][x].n=0;ny=y-1;muros[ny][nx].s=0;}
+    if(d==='s'){muros[y][x].s=0;ny=y+1;muros[ny][nx].n=0;}
+    if(d==='e'){muros[y][x].e=0;nx=x+1;muros[ny][nx].o=0;}
+    if(d==='o'){muros[y][x].o=0;nx=x-1;muros[ny][nx].e=0;}
+    vis[ny][nx]=true;pila.push([nx,ny]);}
+  var W=cols*cw,H=rows*cw,l='';
+  for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){var m=muros[y][x],X=x*cw,Y=y*cw;
+    if(m.n)l+='M'+X+' '+Y+'h'+cw;if(m.o)l+='M'+X+' '+Y+'v'+cw;
+    if(y===rows-1&&m.s)l+='M'+X+' '+(Y+cw)+'h'+cw;if(x===cols-1&&m.e)l+='M'+(X+cw)+' '+Y+'v'+cw;}
+  return {W:W,H:H,l:l};
+}
+function hojaLab(n){
+  var f=edad>=6, cols=f?13:9, rows=f?16:11, cw=f?11:16;
+  var m=laberinto(cols,rows,n===2?9173:4217,cw);
+  var im=cw*0.9;
+  var svg='<svg viewBox="-2 -2 '+(m.W+4)+' '+(m.H+4)+'" style="width:100%;height:auto;display:block"><path d="'+m.l+'" stroke="#1f5a3a" stroke-width="'+(f?1.6:2.2)+'" fill="none" stroke-linecap="round"/><image href="img/obj-pollito-pie.webp" x="'+(cw*0.05)+'" y="'+(cw*0.05)+'" width="'+im+'" height="'+im+'"/><image href="img/obj-nido.webp" x="'+((cols-1)*cw+cw*0.05)+'" y="'+((rows-1)*cw+cw*0.05)+'" width="'+im+'" height="'+im+'"/></svg>';
+  return '<div class="hoja" data-p="lab">'+cab('Laberinto del pollito','Lleva al pollito hasta su nido')+'<p class="instr">Con el dedo o con un lápiz. Di por dónde vas: «sube», «gira», «sigue», «para».</p><div style="width:'+(f?165:178)+'mm;margin:0 auto" class="rejilla2">'+svg+'</div>'+pie()+'</div>';
+}
+function hojaSil(){
+  var A=[['gorrión','gorrion'],['paloma','paloma'],['gaviota','gaviota'],['golondrina','golondrina'],['cigüeña','cigueña']];
+  var fil=A.map(function(a){return '<div style="display:flex;gap:6mm;align-items:center;height:42mm"><div class="celda" style="width:78mm;height:41mm;background:#f3f3f3"><img src="img/sil-'+a[1]+'.webp" alt="" style="max-height:37mm"></div><div class="celda" style="width:78mm;height:41mm"><img src="img/ave-'+a[1]+'.webp" alt="" style="max-height:31mm"><div class="pal" style="font-size:12pt">'+a[0]+'</div></div></div>';}).join('');
+  return '<div class="hoja" data-p="sil">'+cab('¿Quién es?','Pega cada ave sobre su silueta')+'<p class="instr">Recorta las aves de la derecha (por las líneas) y pégalas sobre la silueta que les corresponde. Di cómo es: «tiene el pico…», «tiene la cola…».</p><div style="display:grid;gap:2mm">'+fil+'</div>'+pie()+'</div>';
+}
+function hojaCont(){
+  var f=[1,2,3,4,5].map(function(n){var h='';for(var i=0;i<n;i++)h+='<img src="img/obj-huevo.webp" alt="" style="height:21mm;margin:0 .5mm">';var nu=[1,2,3,4,5].map(function(k){return '<div style="width:13mm;height:13mm;border:2.5px solid var(--verde);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18pt;font-weight:900;color:var(--verde)">'+k+'</div>';}).join('');return '<div style="border:2px solid var(--salvia);border-radius:12px;padding:2mm 5mm;margin-bottom:3.5mm;text-align:center"><div style="height:22mm;display:flex;align-items:center;justify-content:center">'+h+'</div><div style="display:flex;gap:4mm;justify-content:center;margin-top:2mm">'+nu+'</div></div>';}).join('');
+  return '<div class="hoja" data-p="cont">'+cab('¿Cuántos huevos hay?','Cuenta y rodea el número')+'<p class="instr">Cuenta los huevos en voz alta y rodea el número. Después di la frase: «Hay… huevos».</p>'+f+pie()+'</div>';
+}
+function hojasCol(){
+  var D=[['colorear-nido','El nido con tres huevos'],['colorear-pajaro','El pájaro en su rama'],['colorear-pollito','El pollito'],['colorear-golondrina','La golondrina']];
+  return D.map(function(d){return '<div class="hoja" data-p="col">'+cab('Para colorear',d[1])+'<div style="text-align:center"><img src="img/'+d[0]+'.webp" alt="" style="width:170mm;height:170mm;object-fit:contain"></div><p class="instr" style="text-align:center">Cuando termines, cuenta qué colores has usado y qué has dibujado.</p>'+pie()+'</div>';}).join('');
+}
+function hojaJuego(){
+  var esp={3:'rama',5:'gusano',8:'pluma',10:'rama',12:'gusano',15:'pluma',17:'gusano'};
+  var mapa={rama:['obj-rama','Pide: «Dame la rama». Avanza 1.'],gusano:['obj-gusano','Di: «El pollito quiere el gusano». Avanza 2.'],pluma:['obj-pluma','Sopla la pluma. Avanza 1.']};
+  var filas=[];for(var r=0;r<4;r++){var f=[];for(var c=0;c<5;c++){var n=r*5+c+1;f.push(n);} if(r%2===1)f.reverse();filas.push(f);}
+  var h='';filas.forEach(function(f){f.forEach(function(n){var e=esp[n],tx='';
+    if(n===1)tx='<img src="img/obj-pollito-pie.webp" alt="" style="max-height:26mm"><div class="fra">SALIDA</div>';
+    else if(n===20)tx='<img src="img/obj-nido.webp" alt="" style="max-height:26mm"><div class="fra"><b>¡AL NIDO!</b></div>';
+    else if(e)tx='<img src="img/'+mapa[e][0]+'.webp" alt="" style="max-height:22mm"><div class="fra" style="font-size:9pt">'+mapa[e][1]+'</div>';
+    h+='<div class="celda" style="height:50mm;position:relative;'+(e?'background:#fff8e7':'')+'"><span style="position:absolute;top:1mm;left:2mm;font-weight:900;font-size:13pt;color:var(--oro2)">'+n+'</span>'+tx+'</div>';});});
+  var fichas='<div style="display:flex;gap:4mm;margin-top:3mm">'+[1,2,3,4].map(function(){return '<div class="celda" style="width:30mm;height:30mm"><img src="img/obj-pollito-pie.webp" alt="" style="max-height:26mm"></div>';}).join('')+'<div style="font-size:10pt;flex:1;padding-left:3mm"><b>Cómo se juega.</b> Se tira un dado y se avanza. Si caes en una casilla con dibujo, haz lo que pide y avanza. Gana el primero que llega al nido. Recorta las fichas y pégalas en un tapón o un trozo de cartón.</div></div>';
+  return '<div class="hoja" data-p="juego">'+cab('El camino del pollito','Juego de mesa para 2 a 4 jugadores')+'<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0">'+h+'</div>'+fichas+pie()+'</div>';
+}
+function hojaPlan(){
+  var ala='M35 82 Q70 95 60 140 Q35 150 10 140 Q0 95 35 82Z';
+  var s='<svg viewBox="0 0 190 210" style="width:100%;height:auto"><g fill="none" stroke="#555" stroke-width=".7" stroke-dasharray="2 1.5"><rect x="5" y="5" width="180" height="62" rx="3"/><path d="'+ala+'"/><path d="'+ala+'" transform="translate(70,0)"/><path d="M150 140 L158 84 L166 125 L174 84 L182 140Z"/><circle cx="25" cy="172" r="11"/><circle cx="55" cy="172" r="11"/><path d="M85 158 L118 174 L85 190Z"/><ellipse cx="140" cy="175" rx="7" ry="13"/><ellipse cx="157" cy="175" rx="7" ry="13"/><ellipse cx="174" cy="175" rx="7" ry="13"/></g><g font-size="6" fill="#1f5a3a" font-family="sans-serif" font-weight="700" text-anchor="middle"><text x="95" y="38">CUERPO · rodea el rollo con esta tira</text><text x="35" y="118">ALA 1</text><text x="105" y="118">ALA 2</text><text x="166" y="150">CRESTA</text><text x="40" y="200">OJOS</text><text x="100" y="200">PICO</text><text x="157" y="200">PLUMAS (3)</text></g></svg>';
+  return '<div class="hoja" data-p="plan">'+cab('Plantilla: pájaro con rollo de cartón','Píntala, recórtala y pégala')+'<p class="instr">Pinta cada pieza. Recorta por las líneas de puntos. Pega la tira del cuerpo alrededor de un rollo de papel higiénico y añade alas, pico, ojos, cresta y plumas.</p>'+s+pie()+'</div>';
+}
 function imprime(p){
-  var h=p==='sec'?hojaSec():p==='mem'?hojasMem():hojaTar();
+  var h=p==='sec'?hojaSec():p==='mem'?hojasMem():p==='tar'?hojaTar():p==='lab'?hojaLab(1):p==='lab2'?hojaLab(2):p==='sil'?hojaSil():p==='cont'?hojaCont():p==='col'?hojasCol():p==='juego'?hojaJuego():hojaPlan();
   var cont=document.getElementById('impresion'); cont.innerHTML=h;
   cont.querySelectorAll('.hoja').forEach(function(x){x.classList.add('activa');});
   cuenta('imprimir_'+p);
@@ -236,8 +316,9 @@ function imprime(p){
 }
 document.querySelectorAll('[data-imp]').forEach(function(b){b.addEventListener('click',function(){imprime(b.dataset.imp);});});
 window.addEventListener('afterprint',function(){document.getElementById('impresion').innerHTML='';});
+manualidades();
 pinta();
-if(Q.get('hoja')){ var h=Q.get('hoja'); var cont=document.getElementById('impresion'); cont.innerHTML=h==='sec'?hojaSec():h==='mem'?hojasMem():hojaTar(); cont.style.display='block'; document.querySelector('header').style.display='none'; document.querySelector('main').style.display='none'; document.querySelector('footer').style.display='none'; document.body.style.background='#888'; cont.querySelectorAll('.hoja').forEach(function(x){x.style.display='block';x.style.margin='10px auto';}); }
+if(Q.get('hoja')){ var h=Q.get('hoja'); var cont=document.getElementById('impresion'); cont.innerHTML=h==='sec'?hojaSec():h==='mem'?hojasMem():h==='tar'?hojaTar():h==='lab'?hojaLab(1):h==='lab2'?hojaLab(2):h==='sil'?hojaSil():h==='cont'?hojaCont():h==='col'?hojasCol():h==='juego'?hojaJuego():hojaPlan(); cont.style.display='block'; document.querySelector('header').style.display='none'; document.querySelector('main').style.display='none'; document.querySelector('footer').style.display='none'; document.body.style.background='#888'; cont.querySelectorAll('.hoja').forEach(function(x){x.style.display='block';x.style.margin='10px auto';}); }
 })();
 </script>
 </body>

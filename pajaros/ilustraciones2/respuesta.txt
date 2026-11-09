@@ -1,0 +1,3 @@
+Hecho. Se han creado los 8 PNG en 1024×1024 y [LEEME.md](/Users/joseaserraf/Developer/generador-intereses/pajaros/ilustraciones2/LEEME.md).
+
+No se ha hecho commit ni push.
