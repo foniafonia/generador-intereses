@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Material a medida según el interés del niño · ColmenIA</title>
+<meta name="description" content="Elige el interés del niño y la edad: material para imprimir y actividades para hacer hoy. Primera versión con pájaros y nidos.">
+<meta property="og:title" content="Material a medida según el interés del niño">
+<meta property="og:description" content="Para imprimir y para hacer hoy. Primera versión: pájaros y nidos.">
+<meta property="og:image" content="https://foniafonia.github.io/generador-intereses/img/portada.jpg">
+<style>
+:root{--arena:#f6ecd2;--crema:#fff8e7;--salvia:#9bbf8a;--verde:#1f5a3a;--noche:#0e3524;--oro:#f4b93a;--oro2:#c98a10;--tinta:#25352b;--rojo:#b8452a}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Avenir Next","Nunito",system-ui,sans-serif;background:var(--arena);color:var(--tinta);line-height:1.5}
+header{background:var(--noche);color:var(--crema);padding:22px 16px 26px;text-align:center}
+header img{height:64px;vertical-align:middle;border-radius:14px}
+h1{font-size:clamp(1.5rem,4.5vw,2.3rem);margin:10px 0 6px;color:var(--oro)}
+header p{margin:0 auto;max-width:640px}
+main{max-width:980px;margin:0 auto;padding:18px 16px 60px}
+.panel{background:var(--crema);border:2px solid var(--oro);border-radius:18px;padding:16px;margin:16px 0}
+h2{color:var(--verde);margin:0 0 8px;font-size:1.35rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--salvia);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;color:var(--verde);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--verde);color:#fff;border-color:var(--verde)}
+.chip.pronto{border-style:dashed;color:#6b7a6f}
+.chip.pronto[aria-pressed=true]{background:#6b7a6f;border-color:#6b7a6f}
+.fila{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.btn{background:var(--oro);color:var(--noche);border:0;border-radius:12px;padding:10px 16px;font:inherit;font-weight:800;cursor:pointer;text-decoration:none;display:inline-block}
+.btn.sec{background:#fff;border:2px solid var(--salvia);color:var(--verde)}
+.rej{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.card{background:#fff;border:2px solid var(--salvia);border-radius:14px;padding:12px}
+.card h3{margin:0 0 4px;color:var(--verde);font-size:1.05rem}
+.card p{margin:4px 0 8px;font-size:.95rem}
+.trabaja{font-size:.85rem;color:#5a6b5f}
+.trabaja b{color:var(--oro2)}
+.mini{width:100%;border-radius:10px;background:#fff;border:1px solid #e3d9bb;aspect-ratio:4/3;object-fit:contain}
+.nota{font-size:.85rem;color:#5a6b5f}
+.pronto-caja{background:#fff;border:2px dashed var(--oro2);border-radius:14px;padding:14px}
+input[type=text]{font:inherit;padding:9px 12px;border-radius:10px;border:2px solid var(--salvia);min-width:220px}
+footer{text-align:center;font-size:.85rem;color:#5a6b5f;padding:20px 16px}
+.oculto{display:none!important}
+/* ===== Hojas imprimibles ===== */
+#impresion{display:none}
+@media screen{#impresion .hoja{display:none}}
+.hoja{width:210mm;height:297mm;padding:11mm 12mm 9mm;background:#fff;position:relative;overflow:hidden;page-break-after:always;break-after:page;font-family:"Avenir Next","Nunito",system-ui,sans-serif;color:var(--tinta)}
+.hoja .cab{display:flex;align-items:center;gap:10px;background:var(--verde);border-bottom:3px solid var(--oro);color:#fff;border-radius:12px;padding:6px 12px;margin-bottom:6mm}
+.hoja .cab img{height:11mm;border-radius:6px}
+.hoja .cab b{font-size:15pt;color:var(--oro);display:block;line-height:1.1}
+.hoja .cab span{font-size:9.5pt}
+.hoja .pie{position:absolute;left:12mm;right:12mm;bottom:7mm;font-size:7.5pt;color:#5a6b5f;text-align:center;border-top:1px solid #ddd;padding-top:2mm}
+.recorta{border:1.2px dashed #8a8a8a}
+.pie2{display:block}
+.rejilla{display:grid;gap:0}
+.celda{border:1.2px dashed #9a9a9a;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2mm;text-align:center;overflow:hidden}
+.celda img{max-width:100%;object-fit:contain}
+.celda .pal{font-weight:800;font-size:16pt;color:var(--verde);margin-top:1mm}
+.celda .fra{font-size:9.5pt;margin-top:1mm}
+.huecos{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin-bottom:6mm}
+.hueco{border:2.5px solid var(--verde);border-radius:12px;height:34mm;display:flex;align-items:flex-start;justify-content:flex-start;padding:2mm 3mm;font-weight:900;font-size:20pt;color:var(--oro2)}
+.instr{font-size:11pt;margin:0 0 4mm}
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  header,main,footer{display:none!important}
+  #impresion{display:block}
+  #impresion .hoja{display:none}
+  #impresion .hoja.activa{display:block}
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="img/colmenia-logo.webp" alt="ColmenIA">
+  <h1>Material a medida según el interés del niño</h1>
+  <p>Elige el interés y la edad. Sale material para imprimir y cosas para hacer hoy mismo.</p>
+</header>
+
+<main>
+  <section class="panel" aria-labelledby="t1">
+    <h2 id="t1">1. ¿Qué le interesa?</h2>
+    <div class="chips" id="intereses">
+      <button class="chip" data-i="pajaros" aria-pressed="true">Pájaros y nidos</button>
+      <button class="chip pronto" data-i="dinosaurios" aria-pressed="false">Dinosaurios</button>
+      <button class="chip pronto" data-i="coches" aria-pressed="false">Coches y camiones</button>
+      <button class="chip pronto" data-i="mar" aria-pressed="false">Animales del mar</button>
+      <button class="chip pronto" data-i="espacio" aria-pressed="false">Espacio y cohetes</button>
+      <button class="chip pronto" data-i="princesas" aria-pressed="false">Princesas y castillos</button>
+      <button class="chip pronto" data-i="trenes" aria-pressed="false">Trenes</button>
+      <button class="chip pronto" data-i="otro" aria-pressed="false">Otro…</button>
+    </div>
+    <h2 style="margin-top:14px" id="t2">2. ¿Qué edad tiene?</h2>
+    <div class="chips" id="edades">
+      <button class="chip" data-e="4" aria-pressed="false">4 años</button>
+      <button class="chip" data-e="5" aria-pressed="true">5 años</button>
+      <button class="chip" data-e="6" aria-pressed="false">6 años</button>
+      <button class="chip" data-e="7" aria-pressed="false">7 años</button>
+    </div>
+  </section>
+
+  <section id="pronto" class="panel oculto">
+    <div class="pronto-caja">
+      <h2>Este interés todavía no está</h2>
+      <p>Lo estamos preparando. Cuéntanos qué te gustaría encontrar y lo usamos para decidir qué hacemos primero. Escribe solo la palabra, sin nombres de personas.</p>
+      <div class="fila">
+        <input type="text" id="otraTxt" maxlength="40" placeholder="por ejemplo: dinosaurios" aria-label="Interés que te falta">
+        <button class="btn" id="otraBtn">Pedirlo</button>
+        <span class="nota" id="otraOk"></span>
+      </div>
+    </div>
+  </section>
+
+  <div id="pajaros">
+    <section class="panel">
+      <h2>Para imprimir</h2>
+      <p class="nota">Hojas A4 listas, con líneas de recorte. Se abre el diálogo de impresión del navegador. Se pueden guardar en PDF.</p>
+      <div class="rej">
+        <div class="card"><img class="mini" src="img/sec-3-pollito.webp" alt="" loading="lazy"><h3>Secuencia del huevo al vuelo</h3><p>Cuatro viñetas para recortar y ordenar, con una tira numerada donde pegarlas.</p><p class="trabaja"><b>Trabaja:</b> orden temporal, narración (primero, luego, al final), vocabulario.</p><button class="btn" data-imp="sec">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/ave-gorrion.webp" alt="" loading="lazy"><h3>Memory de aves de aquí</h3><p>Gorrión, paloma, gaviota, golondrina y cigüeña. Cartas con dibujo y cartas con dibujo y nombre.</p><p class="trabaja"><b>Trabaja:</b> memoria visual, turnos, léxico de aves, nombrar al dar la vuelta a la carta.</p><button class="btn" data-imp="mem">Imprimir</button></div>
+        <div class="card"><img class="mini" src="img/obj-nido.webp" alt="" loading="lazy"><h3>Tarjetas del nido</h3><p>Ocho objetos con su palabra y una frase para pedirlo: «Dame la rama».</p><p class="trabaja"><b>Trabaja:</b> vocabulario, peticiones, frases de dos y tres palabras.</p><button class="btn" data-imp="tar">Imprimir</button></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Para hacer hoy</h2>
+      <p class="nota">Con lo que hay en casa. Cada una dice qué trabaja.</p>
+      <div class="rej" id="acts"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Para jugar en pantalla</h2>
+      <div class="card" style="max-width:560px">
+        <h3>El Lince Digital, solo de pájaros</h3>
+        <p>El lince pide un dibujo y hay que encontrarlo en el tablero. Con voz. Esta partida lleva solo aves, el pollito y el huevo.</p>
+        <a class="btn" id="linkLince" target="_blank" rel="noopener">Jugar</a>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Sobre esta primera versión</h2>
+    <p>Es una prueba abierta. El generador completo, por intereses y con más edades, se está preparando en ColmenIA, la comunidad de logopedas. Las ilustraciones están hechas con IA. El material es de apoyo y no sustituye a la logopeda.</p>
+    <a class="btn sec" id="linkSkool" target="_blank" rel="noopener">Conocer ColmenIA</a>
+  </section>
+</main>
+
+<footer>Gabinete Fönia · ColmenIA · Los contadores son anónimos y no guardan datos personales.</footer>
+
+<div id="impresion" aria-hidden="true"></div>
+
+<script>
+(function(){
+var Q=new URLSearchParams(location.search), C=(Q.get('c')||'').replace(/[^a-z]/gi,'').slice(0,6).toLowerCase();
+var NO=Q.get('yo')==='1'; try{ if(NO) localStorage.setItem('gen-no-contar','1'); if(localStorage.getItem('gen-no-contar')) NO=true; }catch(e){}
+var B='https://abacus.jasoncameron.dev/hit/foniafonia-generador/';
+function cuenta(k){ if(NO) return; try{ new Image().src=B+'gen_'+k; if(C) new Image().src=B+'gen_c_'+C+'_'+k; }catch(e){} }
+cuenta('aperturas');
+try{ if(!localStorage.getItem('gen-visto')){ localStorage.setItem('gen-visto','1'); cuenta('personas'); } }catch(e){}
+
+var SK='https://www.skool.com/logopedia-7339'+(C?'?c='+C:'');
+document.getElementById('linkSkool').href=SK;
+document.getElementById('linkSkool').addEventListener('click',function(){cuenta('skool');});
+document.getElementById('linkLince').href='https://foniafonia.github.io/el-lince-digital/?sel=19.1a.1b.1c.1d.1e.1f.1g.1h.1i.1j.1k.2k&dibujos=emoji&c=gen';
+document.getElementById('linkLince').addEventListener('click',function(){cuenta('lince');});
+
+var interes='pajaros', edad=5;
+function pinta(){
+  document.getElementById('pajaros').classList.toggle('oculto',interes!=='pajaros');
+  document.getElementById('pronto').classList.toggle('oculto',interes==='pajaros');
+  document.querySelectorAll('#intereses .chip').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.i===interes);});
+  document.querySelectorAll('#edades .chip').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.e===edad);});
+  actividades();
+}
+document.getElementById('intereses').addEventListener('click',function(e){var b=e.target.closest('.chip'); if(!b) return; interes=b.dataset.i; cuenta('interes_'+interes); pinta();});
+document.getElementById('edades').addEventListener('click',function(e){var b=e.target.closest('.chip'); if(!b) return; edad=+b.dataset.e; cuenta('edad_'+edad); pinta();});
+document.getElementById('otraBtn').addEventListener('click',function(){
+  var t=(document.getElementById('otraTxt').value||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z ]/g,'').trim().replace(/ +/g,'_').slice(0,24);
+  var ok=document.getElementById('otraOk');
+  if(!t&&interes!=='otro'){ t=interes; }
+  if(!t){ ok.textContent='Escribe una palabra.'; return; }
+  cuenta('pide_'+t); cuenta('pide_total'); ok.textContent='Anotado. Gracias.'; document.getElementById('otraTxt').value='';
+});
+
+/* ===== Actividades ===== */
+var ACT=[
+ {t:'Hacer un nido de verdad',d:'Ramitas, lana, algodón y huevos de plastilina. Que lo construya y diga qué pone en cada paso.',w:'vocabulario (rama, pluma, nido, huevo), peticiones («dame más ramitas»), motricidad fina.'},
+ {t:'Dar de comer a los polluelos',d:'Vasos o cajas con pico de pájaro y gusanos de lana que se cogen con pinzas.',w:'colores, contar, turnos, primero y último, pinza.',e:[4,5,6]},
+ {t:'Carreras de plumas',d:'Soplar una pluma por la mesa hasta la meta.',w:'soplo dirigido, control de la respiración, turnos.'},
+ {t:'Imitar sonidos de aves',d:'Pío pío, cucú, el arrullo de la paloma. La app Merlin Bird ID trae grabaciones.',w:'discriminación auditiva, imitación, onomatopeyas.'},
+ {t:'Salir a observar',d:'Prismáticos con dos rollos de cartón y un comedero con un brick y alpiste. Buscar nidos en los árboles, sin tocarlos.',w:'atención, vocabulario espontáneo, descripción de lo que ve.',e:[5,6,7]},
+ {t:'Contar lo que se ha visto',d:'Al volver, dibujar un ave y dictar o escribir una frase: «He visto una… que estaba…».',w:'narración, frases con sujeto y verbo, conciencia fonológica al escribir.',e:[6,7]},
+ {t:'Cuentos para leer juntos',d:'¿Eres tú mi mamá?, de P. D. Eastman, y Pájaro amarillo, de Olga de Dios.',w:'comprensión, preguntas y respuestas, vocabulario.'}
+];
+function actividades(){
+  var h=ACT.filter(function(a){return !a.e||a.e.indexOf(edad)>-1;}).map(function(a){return '<div class="card"><h3>'+a.t+'</h3><p>'+a.d+'</p><p class="trabaja"><b>Trabaja:</b> '+a.w+'</p></div>';}).join('');
+  document.getElementById('acts').innerHTML=h;
+}
+
+/* ===== Hojas ===== */
+var LOGO='img/colmenia-logo.webp';
+function cab(tit,sub){return '<div class="cab"><img src="'+LOGO+'" alt=""><div><b>'+tit+'</b><span>'+sub+'</span></div></div>';}
+function pie(){return '<div class="pie">Gabinete Fönia · ColmenIA · foniafonia.github.io/generador-intereses · Ilustraciones hechas con IA · Material de apoyo, no sustituye a la logopeda</div>';}
+var AVES=[['gorrión','ave-gorrion'],['paloma','ave-paloma'],['gaviota','ave-gaviota'],['golondrina','ave-golondrina'],['cigüeña','ave-cigueña']];
+var OBJ=[['la rama','rama','Dame la rama.','obj-rama'],['la pluma','pluma','Quiero la pluma.','obj-pluma'],['el pico','pico','Abre el pico.','obj-pico'],['el ala','ala','Mueve el ala.','obj-ala'],['la cáscara','cáscara','Mira la cáscara.','obj-cascara'],['el nido','nido','Pon el nido aquí.','obj-nido'],['el gusano','gusano','El pollito quiere el gusano.','obj-gusano'],['los huevos','huevos','Cuento tres huevos.','obj-huevos']];
+function hojaSec(){
+  var orden=['sec-3-pollito','sec-1-huevo','sec-4-vuelo','sec-2-cascara'];
+  var hu='<div class="huecos">'+[1,2,3,4].map(function(n){return '<div class="hueco">'+n+'</div>';}).join('')+'</div>';
+  var cel=orden.map(function(f){return '<div class="celda" style="height:96mm"><img src="img/'+f+'.webp" alt="" style="max-height:90mm"></div>';}).join('');
+  var instr=edad>=6?'Recorta las cuatro viñetas, ordénalas y cuenta la historia con: primero, luego, después y al final.':'Recorta las cuatro viñetas, ordénalas y cuenta qué pasa.';
+  return '<div class="hoja" data-p="sec">'+cab('El huevo, el pollito y el vuelo','Ordena la historia')+'<p class="instr">'+instr+'</p>'+hu+'<div class="rejilla" style="grid-template-columns:1fr 1fr;">'+cel+'</div>'+pie()+'</div>';
+}
+function hojaMem(conNombre){
+  var cartas=[];AVES.forEach(function(a){cartas.push({n:a[0],f:a[1],nom:conNombre});});
+  var c=cartas.map(function(a){return '<div class="celda" style="height:78mm"><img src="img/'+a.f+'.webp" alt="" style="max-height:'+(a.nom?'58mm':'68mm')+'">'+(a.nom?'<div class="pal">'+a.n+'</div>':'')+'</div>';}).join('');
+  return c;
+}
+function hojasMem(){
+  var tit=cab('Memory de aves de aquí','Gorrión, paloma, gaviota, golondrina y cigüeña');
+  var a='<div class="hoja" data-p="mem">'+tit+'<p class="instr">Hoja 1 · Cartas con dibujo. Recórtalas por las líneas.</p><div class="rejilla" style="grid-template-columns:1fr 1fr">'+hojaMem(false)+'</div>'+pie()+'</div>';
+  var b='<div class="hoja" data-p="mem">'+tit+'<p class="instr">Hoja 2 · Cartas con dibujo y nombre. Cada una hace pareja con la de la hoja 1. Al dar la vuelta, que diga el nombre.</p><div class="rejilla" style="grid-template-columns:1fr 1fr">'+hojaMem(true)+'</div>'+pie()+'</div>';
+  return a+b;
+}
+function hojaTar(){
+  var c=OBJ.map(function(o){return '<div class="celda" style="height:57mm"><img src="img/'+o[3]+'.webp" alt="" style="max-height:34mm"><div class="pal">'+o[0]+'</div><div class="fra">'+o[2]+'</div></div>';}).join('');
+  return '<div class="hoja" data-p="tar">'+cab('Tarjetas del nido','Mira, di la palabra y pide con la frase')+'<p class="instr">Recorta las tarjetas. Se pueden usar para nombrar, pedir y hacer frases.</p><div class="rejilla" style="grid-template-columns:1fr 1fr">'+c+'</div>'+pie()+'</div>';
+}
+function imprime(p){
+  var h=p==='sec'?hojaSec():p==='mem'?hojasMem():hojaTar();
+  var cont=document.getElementById('impresion'); cont.innerHTML=h;
+  cont.querySelectorAll('.hoja').forEach(function(x){x.classList.add('activa');});
+  cuenta('imprimir_'+p);
+  var imgs=Array.prototype.slice.call(cont.querySelectorAll('img')), n=imgs.length;
+  function ya(){ window.print(); }
+  var pend=imgs.filter(function(i){return !i.complete;}).length;
+  if(!pend){ setTimeout(ya,150); return; }
+  imgs.forEach(function(i){ if(!i.complete) i.addEventListener('load',function(){ if(--pend===0) setTimeout(ya,150); }); i.addEventListener('error',function(){ if(--pend===0) setTimeout(ya,150); }); });
+}
+document.querySelectorAll('[data-imp]').forEach(function(b){b.addEventListener('click',function(){imprime(b.dataset.imp);});});
+window.addEventListener('afterprint',function(){document.getElementById('impresion').innerHTML='';});
+pinta();
+if(Q.get('hoja')){ var h=Q.get('hoja'); var cont=document.getElementById('impresion'); cont.innerHTML=h==='sec'?hojaSec():h==='mem'?hojasMem():hojaTar(); cont.style.display='block'; document.querySelector('header').style.display='none'; document.querySelector('main').style.display='none'; document.querySelector('footer').style.display='none'; document.body.style.background='#888'; cont.querySelectorAll('.hoja').forEach(function(x){x.style.display='block';x.style.margin='10px auto';}); }
+})();
+</script>
+</body>
+</html>

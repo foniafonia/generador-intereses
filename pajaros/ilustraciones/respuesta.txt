@@ -1,0 +1,3 @@
+Listo. He creado las 17 ilustraciones PNG en `ilustraciones/`, todas en 1024×1024, y el archivo [LEEME.md](</Users/joseaserraf/Developer/generador-intereses/pajaros/ilustraciones/LEEME.md>).
+
+No he hecho commit ni push.
