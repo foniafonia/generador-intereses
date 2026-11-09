@@ -156,9 +156,29 @@ footer{text-align:center;font-size:.85rem;color:#5a6b5f;padding:20px 16px}
 <div id="impresion" aria-hidden="true"></div>
 <div id="tras" class="oculto" style="position:fixed;left:12px;right:12px;bottom:12px;max-width:560px;margin:auto;background:var(--noche);color:var(--crema);border:2px solid var(--oro);border-radius:16px;padding:12px 14px;z-index:50;text-align:center">
   <b>¿Te ha servido?</b> En ColmenIA seguimos creando material como este, con lo que nos pedís.
-  <div style="margin-top:8px"><a class="btn" data-sk="tras_imprimir" target="_blank" rel="noopener">Entrar en la comunidad</a> <button class="btn sec" id="trasX" type="button">Cerrar</button></div>
+  <div style="margin-top:8px"><a class="btn" data-sk="tras_imprimir" target="_blank" rel="noopener">Entrar en la comunidad</a> <button class="btn sec" id="trasM" type="button">🐝 Pide una mejora</button> <button class="btn sec" id="trasX" type="button">Cerrar</button></div>
 </div>
 
+<button id="abeja" type="button" aria-label="Pide una mejora" style="position:fixed;right:12px;bottom:12px;z-index:40;background:var(--oro);color:var(--noche);border:2px solid var(--noche);border-radius:999px;padding:10px 14px;font:800 15px inherit;font-family:inherit;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.25)">🐝 Pide una mejora</button>
+<div id="mejora" class="oculto" style="position:fixed;inset:0;background:rgba(14,53,36,.6);z-index:60;display:flex;align-items:center;justify-content:center;padding:14px">
+  <div style="background:var(--crema);border:3px solid var(--oro);border-radius:18px;max-width:520px;width:100%;padding:16px;max-height:92vh;overflow:auto" role="dialog" aria-label="Pide una mejora">
+    <h2 style="margin:0 0 4px">🐝 Lo de todos, para todos</h2>
+    <p style="margin:0 0 10px">En ColmenIA funciona así: cada uno cuenta lo que le falta, lo hacemos, lo compartimos y entre todos lo mejoramos. Toca lo que más te ayudaría:</p>
+    <div class="chips" id="mejChips">
+      <button class="chip" data-m="mas_intereses" type="button" aria-pressed="false">Más intereses</button>
+      <button class="chip" data-m="mas_edades" type="button" aria-pressed="false">Más edades</button>
+      <button class="chip" data-m="mas_hojas" type="button" aria-pressed="false">Más hojas para imprimir</button>
+      <button class="chip" data-m="mas_manualidades" type="button" aria-pressed="false">Más manualidades</button>
+      <button class="chip" data-m="para_aula" type="button" aria-pressed="false">Para el aula</button>
+      <button class="chip" data-m="para_familias" type="button" aria-pressed="false">Para familias</button>
+    </div>
+    <p style="margin:12px 0 4px"><b>¿Otra idea?</b> <span class="nota">Escribe solo la idea, sin nombres de personas.</span></p>
+    <div class="fila"><input type="text" id="mejTxt" maxlength="50" placeholder="por ejemplo: material de Navidad" aria-label="Otra mejora"><button class="btn" id="mejBtn" type="button">Enviar</button></div>
+    <p class="nota" id="mejOk" style="min-height:1.2em"></p>
+    <p style="margin:6px 0"><a class="btn sec" data-sk="mejora" target="_blank" rel="noopener">Cuéntalo con más detalle en la comunidad</a></p>
+    <button class="btn sec" id="mejX" type="button">Cerrar</button>
+  </div>
+</div>
 <script src="datos.js"></script>
 <script>
 (function(){
@@ -193,6 +213,22 @@ document.getElementById('otraBtn').addEventListener('click',function(){
   if(!t){ ok.textContent='Escribe una palabra.'; return; }
   cuenta('pide_'+t); cuenta('pide_total'); ok.textContent='Anotado. Gracias.'; document.getElementById('otraTxt').value='';
 });
+
+/* ===== Buzón de mejoras ===== */
+(function(){
+  var m=document.getElementById('mejora'), ok=document.getElementById('mejOk');
+  function abre(){ m.classList.remove('oculto'); ok.textContent=''; cuenta('mejora_abrir'); }
+  document.getElementById('abeja').addEventListener('click',abre);
+  document.getElementById('mejX').addEventListener('click',function(){m.classList.add('oculto');});
+  m.addEventListener('click',function(e){ if(e.target===m) m.classList.add('oculto'); });
+  document.getElementById('mejChips').addEventListener('click',function(e){var b=e.target.closest('.chip'); if(!b||b.getAttribute('aria-pressed')==='true') return; b.setAttribute('aria-pressed','true'); cuenta('mejora_'+b.dataset.m); cuenta('mejora_total'); ok.textContent='Anotado. Gracias.';});
+  document.getElementById('mejBtn').addEventListener('click',function(){
+    var t=(document.getElementById('mejTxt').value||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z ]/g,'').trim().replace(/ +/g,'_').slice(0,28);
+    if(!t){ ok.textContent='Escribe una idea.'; return; }
+    cuenta('mejora_otra_'+t); cuenta('mejora_total'); ok.textContent='Anotado. Gracias.'; document.getElementById('mejTxt').value='';
+  });
+  window.abreMejora=abre;
+})();
 
 /* ===== Contenido de pantalla ===== */
 function contenido(){
@@ -298,6 +334,7 @@ function imprime(p){
   imgs.forEach(function(i){ if(!i.complete){ i.addEventListener('load',function(){ if(--pend===0) setTimeout(ya,150); }); i.addEventListener('error',function(){ if(--pend===0) setTimeout(ya,150); }); } });
 }
 window.addEventListener('afterprint',function(){document.getElementById('impresion').innerHTML=''; document.getElementById('tras').classList.remove('oculto');});
+document.getElementById('trasM').addEventListener('click',function(){document.getElementById('tras').classList.add('oculto'); window.abreMejora();});
 document.getElementById('trasX').addEventListener('click',function(){document.getElementById('tras').classList.add('oculto');});
 pinta();
 if(Q.get('hoja')){ var cont=document.getElementById('impresion'); cont.innerHTML=hojas(Q.get('hoja')); cont.style.display='block'; document.querySelector('header').style.display='none'; document.querySelector('main').style.display='none'; document.querySelector('footer').style.display='none'; document.body.style.background='#888'; cont.querySelectorAll('.hoja').forEach(function(x){x.style.display='block';x.style.margin='10px auto';}); }
