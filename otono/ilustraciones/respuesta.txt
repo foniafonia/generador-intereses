@@ -1,0 +1,6 @@
+Hecho. Guardé en esta carpeta:
+
+- 23 imágenes PNG, todas de 1024 × 1024.
+- [LEEME.md](/Users/joseaserraf/Developer/generador-intereses/otono/ilustraciones/LEEME.md), con una línea por imagen.
+
+No hice commit ni push, ni modifiqué otros archivos.

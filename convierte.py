@@ -1,6 +1,6 @@
 import glob,os
 from PIL import Image
-src=[os.path.expanduser("~/Developer/generador-intereses/pajaros/ilustraciones/"),os.path.expanduser("~/Developer/generador-intereses/pajaros/ilustraciones2/")]
+src=[os.path.expanduser("~/Developer/generador-intereses/pajaros/ilustraciones/"),os.path.expanduser("~/Developer/generador-intereses/pajaros/ilustraciones2/"),os.path.expanduser("~/Developer/generador-intereses/otono/ilustraciones/")]
 dst=os.path.expanduser("~/Developer/generador-intereses/img/")
 for p in sorted(sum([glob.glob(d+"*.png") for d in src],[])):
     n=os.path.basename(p)[:-4]
