@@ -70,5 +70,39 @@ otono:{
   {t:'Contar lo que se ha visto',d:'Al volver, dibujar lo que más le ha gustado y dictar o escribir una frase: «He visto… y estaba…».',w:'narración, frases con sujeto y verbo, conciencia fonológica al escribir.',e:[6,7]}
  ],
  lince:{t:'El Lince Digital, de otoño',d:'El lince pide un dibujo y hay que encontrarlo en el tablero. Con voz. Esta partida lleva ardilla, erizo, hoja, lluvia, paraguas, uvas, maíz, trigo, árbol y nubes.',url:'https://foniafonia.github.io/el-lince-digital/?sel=1n.1o.1v.26.4e.5a.5k.5l.5t.5u.5v&dibujos=emoji&c=gen'}
+},
+transportes:{
+ imprimir:[
+  {k:'sec',img:'obj-maleta',t:'Secuencia: nos vamos de viaje',d:'Cuatro viñetas para recortar y ordenar: la maleta, el coche, el avión y la playa. Con una tira numerada donde pegarlas.',w:'orden temporal, narración (primero, luego, al final), vocabulario del viaje.'},
+  {k:'mem',img:'obj-coche',t:'Memory de transportes',d:'Coche, autobús, tren, avión y barco. Cartas con dibujo y cartas con dibujo y nombre.',w:'memoria visual, turnos, léxico de transportes, nombrar al dar la vuelta a la carta.'},
+  {k:'tar',img:'obj-rueda',t:'Tarjetas del viaje',d:'Ocho cosas del camino con su palabra y una frase para pedirlas o contarlas: «Dame la rueda».',w:'vocabulario, peticiones, frases de dos y tres palabras.'},
+  {k:'lab',img:'obj-gasolinera',t:'Laberinto: el coche va a la gasolinera',d:'Un laberinto distinto cada vez, más fácil o más difícil según la edad.',w:'atención visual, planificación, instrucciones («sube», «gira», «para»).'},
+  {k:'sil',img:'sil-tren',fondo:1,t:'¿Quién es? Transportes y siluetas',d:'Recorta los cinco transportes y pégalos sobre su silueta.',w:'discriminación visual, nombrar, describir partes (ruedas, alas, ventanas).'},
+  {k:'cont',img:'obj-rueda',t:'¿Cuántas ruedas hay?',d:'Cinco filas con una a cinco ruedas. Rodea el número.',w:'contar, cuantificadores (una, dos, muchas), frases con número.'},
+  {k:'juego',img:'obj-coche',t:'Juego de mesa: el coche va a casa',d:'Tablero de 20 casillas. En las especiales hay que pedir, decir o soplar para avanzar. Se juega con un dado.',w:'peticiones, turnos, vocabulario, soplo, contar casillas.'}
+ ],
+ sec:{tit:'Nos vamos de viaje',orden:['obj-avion','obj-maleta','obj-playa','obj-coche']},
+ mem:{tit:'Memory de transportes',sub:'Coche, autobús, tren, avión y barco',items:[['coche','obj-coche'],['autobús','obj-autobus'],['tren','obj-tren'],['avión','obj-avion'],['barco','obj-barco']]},
+ tar:{tit:'Tarjetas del viaje',items:[['la rueda','rueda','Dame la rueda.','obj-rueda'],['el semáforo','semáforo','Mira el semáforo.','obj-semaforo'],['la gasolinera','gasolinera','Vamos a la gasolinera.','obj-gasolinera'],['la maleta','maleta','Cierra la maleta.','obj-maleta'],['el mapa','mapa','Mira el mapa.','obj-mapa'],['el cinturón','cinturón','Ponte el cinturón.','obj-cinturon'],['la llave','llave','Quiero la llave.','obj-llave'],['el puente','puente','Pasamos el puente.','obj-puente']]},
+ lab:{tit:'Laberinto del coche',sub:'Lleva el coche hasta la gasolinera',ini:'obj-coche',fin:'obj-gasolinera'},
+ sil:{tit:'¿Quién es?',items:[['coche','obj-coche','sil-coche'],['autobús','obj-autobus','sil-autobus'],['tren','obj-tren','sil-tren'],['avión','obj-avion','sil-avion'],['barco','obj-barco','sil-barco']]},
+ cont:{tit:'¿Cuántas ruedas hay?',img:'obj-rueda',plural:'ruedas'},
+ juego:{tit:'El coche va a casa',ficha:'obj-coche',meta:'obj-casa',metaTxt:'¡A CASA!',esp:{3:'a',5:'b',8:'c',10:'a',12:'b',15:'c',17:'b'},tipos:{a:['obj-llave','Pide: «Dame la llave». Avanza 1.'],b:['obj-semaforo','Di: «El coche para en el semáforo». Avanza 2.'],c:['obj-globo','Sopla como si inflaras un globo. Avanza 1.']}},
+ manu:[
+  {t:'Coche con una caja de cartón',img:'obj-coche',mat:'Una caja de cartón donde quepa el niño, cuatro platos de papel, pegamento o cinta, pinturas y un plato más para el volante.',pasos:['El adulto quita el fondo y la tapa de la caja.','Pinta la caja del color que quiera.','Pega los cuatro platos a los lados: son las ruedas.','Pega el volante delante.','Se mete dentro y conduce: «arranco», «giro», «paro».'],dice:'«Arranco», «giro», «paro», «más rápido», «despacio».',w:'verbos de movimiento, vocabulario del coche, juego simbólico.'},
+  {t:'Tren de rollos de cartón',img:'obj-tren',mat:'Tres o cuatro rollos de papel higiénico, tapones de botella, pegamento, pinturas y una cuerda.',pasos:['Pinta cada rollo de un color: son los vagones.','Pega cuatro tapones en cada rollo: son las ruedas.','Une los rollos con la cuerda.','Arrastra el tren y di los colores: «primero el rojo, luego el azul».'],dice:'«Chu-chu», «el vagón rojo», «primero… luego…».',w:'colores, orden (primero, después), motricidad fina.'},
+  {t:'Barco de papel que flota',img:'obj-barco',mat:'Un folio, un barreño o la bañera con agua.',pasos:['El adulto dobla el barco con el niño, paso a paso.','Lo ponen en el agua.','Soplan para que se mueva.','Prueban a ponerle un peso pequeño: ¿flota o se hunde?'],dice:'«Flota», «se hunde», «soplo fuerte».',w:'soplo, conceptos (flota / se hunde), vocabulario del agua.'},
+  {t:'Avión de pinza y palos de polo',img:'obj-avion',mat:'Una pinza de madera, dos palos de polo, uno más corto, pegamento y pinturas.',pasos:['Pinta la pinza y los palos.','Pega el palo largo encima de la pinza: son las alas.','Pega el corto detrás: es la cola.','Hazlo volar por la casa: «despega», «sube», «aterriza».'],dice:'«Despega», «sube», «aterriza», «arriba», «abajo».',w:'conceptos espaciales, verbos, motricidad fina.'}
+ ],
+ acts:[
+  {t:'Ciudad en el suelo',d:'Con cinta de pintor, dibujar carreteras en el suelo. Pasear los coches de juguete y dar órdenes: «para en el semáforo», «gira a la derecha».',w:'instrucciones, preposiciones (delante, detrás, al lado), turnos.'},
+  {t:'Semáforo con el cuerpo',d:'El adulto enseña rojo, ámbar o verde (con cartulinas) y el niño se para, va despacio o corre.',w:'atención, esperar la señal, colores, verbos de movimiento.',e:[4,5,6]},
+  {t:'Ruidos de transportes',d:'Imitar el pi-pi del coche, el chu-chu del tren, la sirena de la ambulancia. Después, adivinar cuál hace el otro.',w:'discriminación auditiva, imitación, onomatopeyas.'},
+  {t:'Carreras de coches soplando',d:'Soplar un coche de papel o una pelota de ping-pong por la mesa, con pajita o sin ella, hasta la meta.',w:'soplo dirigido, control de la respiración, turnos.'},
+  {t:'Agrupar por dónde van',d:'Mezclar juguetes o tarjetas y separarlos: por tierra, por el agua y por el aire.',w:'categorías, vocabulario, explicar por qué («el barco va por el agua»).',e:[5,6,7]},
+  {t:'Mirar por la ventana o en el paseo',d:'Contar coches rojos, buscar un autobús, ver qué transporte pasa. Luego, decir cuántos ha visto.',w:'atención, contar, vocabulario espontáneo, frases con número.',e:[5,6,7]},
+  {t:'Contar un viaje',d:'Dibujar un viaje de verdad o inventado y dictar o escribir una frase: «Fui en… a…».',w:'narración, frases con sujeto y verbo, conciencia fonológica al escribir.',e:[6,7]}
+ ],
+ lince:{t:'El Lince Digital, de transportes',d:'El lince pide un dibujo y hay que encontrarlo en el tablero. Con voz. Esta partida lleva solo transportes: coche, taxi, autobús, tren, avión, barco, cohete…',url:'https://foniafonia.github.io/el-lince-digital/?sel=4j.4k.4l.4m.4n.4o.4p.4q.4r.4s.4t.4u.4v.4w.4x.4y.4z.50.51.52.53.54.55.56.57.58.59&dibujos=emoji&c=gen'}
 }
 };
